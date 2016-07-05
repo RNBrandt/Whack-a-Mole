@@ -1,0 +1,34 @@
+@import url(http://fonts.googleapis.com/css?family=Shadows+Into+Light);
+
+body,
+html,
+div.board,
+div#react-container {
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+div.board {
+
+}
+
+div.mole {
+
+}
+
+div.mole:active {
+    cursor: -webkit-grabbing;
+}
+
+div.hole{
+
+}
+
+.hammer{
+
+}
