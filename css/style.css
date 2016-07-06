@@ -12,13 +12,26 @@ body {
     margin: 0;
     padding: 0;
 }
-
-div.board {
+div.surface{
+    position: fixed;
+    bottom: 0;
+    width: 70%;
+    height: 40%;
+    margin: auto;
 
 }
 
-div.mole {
+div.board {
+    background-image: url('http://miron-construction.com/wp-content/files/2014/08/shutterstock_123301714.jpg');
+}
 
+div.mole{
+    height: 100px;
+    width: 75px;
+    margin: 5em;
+    background-color: blue;
+    position: absolute;
+    box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, .2);
 }
 
 div.mole:active {
