@@ -29,28 +29,25 @@ var Mole = React.createClass({
 var Surface = React.createClass({
   render: function(){
     return (<div className = "surface">
-      {this.state.mole.map(function(mole,i){
-        return(
-          <Mole key={i}></Mole>
-        );
-      })}
-    </div>)
+      {this.state.moles.map(this.eachMole)}
+    </div>
+    );
+  },
+
+  eachMole: function(mole, i){
+    return(
+    <Mole key={i} index={i} onChange={this.hit}>"i"</Mole>
+    );
   },
   getInitialState: function(){
     return{
-      mole: ['1']
+      moles: ['1', '2', '3',
+      '4']
     };
   }
-})
+});
 
 var Board = React.createClass({
-  getInitialState: function(){
-    return{
-      mole:[
-      '1'
-      ]
-    };
-  },
   render: function(){
     return (<div className='board'> <Surface> </Surface>
     </div>
