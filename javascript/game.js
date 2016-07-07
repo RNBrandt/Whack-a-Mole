@@ -11,7 +11,7 @@
   // The counter will not increment
   // The face will not change
   // The the mole will disappear.
-
+var score= 0;
 var Hole = React.createClass({
   // getInitialState: function(){
   //   return {hit: false}
@@ -50,8 +50,14 @@ var Mole = React.createClass({
   },
   render: function(){
     return(
-    <div onClick={this.hit} className='mole'></div>);
+    <div onClick={
+      this.hit
+      // this.addScore;
+      } className='mole'></div>);
   }
+  // addScore: function(counter, i){
+  //   return(<Counter key={i} index={i} onChange={this.increment}></Counter>)
+  // }
 })
 
 var Surface = React.createClass({
@@ -80,15 +86,14 @@ var Surface = React.createClass({
 var Counter = React.createClass({
   getInitialState: function(){
     return{
-      score: 0
+      score
     };
   },
   increment: function(){
-    return this.score += 1
   },
   render: function(){
-    {console.log(this.state.score)}
-    {return (<div className='counter'>{this.state.score}</div>)}
+    console.log(this.state.score);
+    return (<div className='counter'>{this.state.score}</div>);
   }
 });
 var Board = React.createClass({
