@@ -23,7 +23,8 @@ div.surface{
 }
 
 div.board {
-    background-image: url('http://miron-construction.com/wp-content/files/2014/08/shutterstock_123301714.jpg');
+    /*background-image: url('http://miron-construction.com/wp-content/files/2014/08/shutterstock_123301714.jpg');*/
+    background-color: pink;
 }
 
 div.hole{
@@ -56,5 +57,5 @@ div.counter{
     background-color: yellow;
     height: 10%;
     width: 20%;
-    color: black;
+    /*color: black;*/
 }

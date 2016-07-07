@@ -13,14 +13,18 @@
   // The the mole will disappear.
 var score= 0;
 var Hole = React.createClass({
-  // getInitialState: function(){
-  //   return {hit: false}
-  // },
+  getInitialState: function(){
+    return {hit: false}
+  },
   getInitialState: function(){
     return {molePresent: false}
   },
   makeMole: function(){
     this.setState({molePresent: true});
+    console.log("make mole hit");
+    setTimeout(function(){this.setState({molePresent: false})}.bind(this), 5000);
+    // setTimeout(function(){this.molePresent: false}, 5000);
+    // console.log(this.molePresent);
   },
   renderMole: function(){
     return(
