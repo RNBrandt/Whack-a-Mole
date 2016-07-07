@@ -12,37 +12,65 @@
   // The face will not change
   // The the mole will disappear.
 
-var Mole = React.createClass({
+var Hole = React.createClass({
   // getInitialState: function(){
   //   return {hit: false}
   // },
+  getInitialState: function(){
+    return {molePresent: false}
+  },
+  makeMole: function(){
+    this.setState({molePresent: true});
+  },
+  renderMole: function(){
+    return(
+      <div className="hole" >
+        <Mole></Mole>
+      </div>
+    );
+  },
+  renderHole: function(){
+    return(
+      <div className="hole" onClick={this.makeMole}></div>
+    );
+  },
+  render: function(){
+    if (this.state.molePresent){
+      return this.renderMole();
+    }
+    else {
+      return this.renderHole();
+    }
+  }
+});
+
+var Mole = React.createClass({
   hit: function(){
     alert('you hit the mole');
   },
   render: function(){
-    return (
-      <div onClick={this.hit} className="mole"></div>
-    );
-  },
-});
+    return(
+    <div onClick={this.hit} className='mole'></div>);
+  }
+})
 
 var Surface = React.createClass({
   render: function(){
     return (<div className = "surface">
-      {this.state.moles.map(this.eachMole)}
+      {this.state.holes.map(this.eachHole)}
     </div>
     );
   },
 
-  eachMole: function(mole, i){
+  eachHole: function(hole, i){
     return(
-    <Mole key={i} index={i} onChange={this.hit}>"i"</Mole>
+    <Hole key={i} index={i} onChange={this.hit}>"i"</Hole>
     );
   },
   getInitialState: function(){
     return{
-      moles: ['1', '2', '3',
-      '4']
+      holes: ['1', '2', '3',
+      '4','5','6','7','8']
     };
   }
 });

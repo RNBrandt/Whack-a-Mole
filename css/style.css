@@ -18,6 +18,7 @@ div.surface{
     width: 70%;
     height: 40%;
     margin: auto;
+    text-align: justify;
 
 }
 
@@ -25,23 +26,29 @@ div.board {
     background-image: url('http://miron-construction.com/wp-content/files/2014/08/shutterstock_123301714.jpg');
 }
 
-div.mole{
-    height: 100px;
-    width: 75px;
-    margin: 5em;
+div.hole{
+    height: 30%;
+    width: 15%;
+    margin-left: auto;
+    margin-right: auto;
     background-color: blue;
     position: relative;
+    display: inline-block;
+    text-align: justify;
+    text-justify: distribute-all-lines;
     box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, .2);
+
 }
 
 div.mole:active {
     cursor: -webkit-grabbing;
 }
 
-div.hole{
-
+div.mole{
+    height: 90%;
+    width: 60%;
+    background-color: red;
 }
-
 .hammer{
 
 }
