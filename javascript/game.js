@@ -58,10 +58,13 @@ var Surface = React.createClass({
   render: function(){
     return (<div className = "surface">
       {this.state.holes.map(this.eachHole)}
+      <button onClick={this.startGame} className='btn btn-primary glyphicon'/>
     </div>
     );
   },
-
+  startGame: function(){
+    alert('Get Ready to start the game');
+  },
   eachHole: function(hole, i){
     return(
     <Hole key={i} index={i} onChange={this.hit}>"i"</Hole>
