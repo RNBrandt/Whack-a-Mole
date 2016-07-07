@@ -67,7 +67,7 @@ var Surface = React.createClass({
   },
   eachHole: function(hole, i){
     return(
-    <Hole key={i} index={i} onChange={this.hit}>"i"</Hole>
+    <Hole key={i} index={i} onChange={this.hit}></Hole>
     );
   },
   getInitialState: function(){
@@ -77,10 +77,24 @@ var Surface = React.createClass({
     };
   }
 });
-
+var Counter = React.createClass({
+  getInitialState: function(){
+    return{
+      score: 0
+    };
+  },
+  increment: function(){
+    return this.score += 1
+  },
+  render: function(){
+    {console.log(this.state.score)}
+    {return (<div className='counter'>{this.state.score}</div>)}
+  }
+});
 var Board = React.createClass({
   render: function(){
     return (<div className='board'> <Surface> </Surface>
+      <Counter></Counter>
     </div>
     );
   }

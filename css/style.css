@@ -50,5 +50,11 @@ div.mole{
     background-color: red;
 }
 .hammer{
-
+}
+div.counter{
+    font-family: 46;
+    background-color: yellow;
+    height: 10%;
+    width: 20%;
+    color: black;
 }
