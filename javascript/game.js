@@ -23,8 +23,6 @@ var Hole = React.createClass({
     this.setState({molePresent: true});
     console.log("make mole hit");
     setTimeout(function(){this.setState({molePresent: false})}.bind(this), 5000);
-    // setTimeout(function(){this.molePresent: false}, 5000);
-    // console.log(this.molePresent);
   },
   renderMole: function(){
     return(
@@ -74,20 +72,27 @@ var Surface = React.createClass({
   },
   startGame: function(){
     alert('Get Ready to start the game');
+    console.log(this.findRandom())
+  },
+  findRandom: function(){
+    // select a random hole from the bunch
+    var arr = this.state.holes
+    var selected = arr[Math.floor(Math.random() * arr.length)];
   },
   eachHole: function(hole, i){
     return(
-    <Hole key={i} index={i} onChange={this.hit}></Hole>
+    <Hole key={hole.id} index={i} onChange={this.hit}></Hole>
     );
   },
   getInitialState: function(){
     return{
-      holes: ['1', '2', '3',
-      '4','5','6','7','8']
+      holes: [{id:1}, {id:2}, {id:3},
+      {id:4},{id:5},{id:6},{id:7},{id:8}]
     };
   }
 });
 var Counter = React.createClass({
+  // Use setState
   getInitialState: function(){
     return{
       score
