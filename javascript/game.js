@@ -65,30 +65,45 @@ var Mole = React.createClass({
 var Surface = React.createClass({
   render: function(){
     return (<div className = "surface">
-      {this.state.holes.map(this.eachHole)}
+      {this.state.holes}
       <button onClick={this.startGame} className='btn btn-primary glyphicon'/>
     </div>
     );
   },
-  startGame: function(){
-    alert('Get Ready to start the game');
-    console.log(this.findRandom())
+
+  componentWillMount() {
+    this.returnHoles();
   },
-  findRandom: function(){
-    // select a random hole from the bunch
-    var arr = this.state.holes
-    var selected = arr[Math.floor(Math.random() * arr.length)];
+
+  returnHoles: function() {
+    var holeArr = this.state.holes.map(this.eachHole);
+    this.setState({holes: holeArr});
   },
-  eachHole: function(hole, i){
-    return(
-    <Hole key={hole.id} index={i} onChange={this.hit}></Hole>
-    );
-  },
+  // {this.state.holes.map(this.eachHole)}
+
   getInitialState: function(){
     return{
       holes: [{id:1}, {id:2}, {id:3},
       {id:4},{id:5},{id:6},{id:7},{id:8}]
     };
+  },
+  startGame: function(){
+    alert('Get Ready to start the game');
+    var selected = this.findRandom();
+    console.log(selected)
+    selected.makeMole;
+  },
+  findRandom: function(){
+    // select a random hole from the bunch
+    var arr = this.state.holes
+    var rand = [Math.floor(Math.random() * arr.length)];
+    var selected = this.state.holes[rand]
+    return selected
+  },
+  eachHole: function(hole, i){
+    return(
+    <Hole ref={hole.id} index={i} onChange={this.hit}></Hole>
+    );
   }
 });
 var Counter = React.createClass({
