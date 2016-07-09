@@ -15,23 +15,30 @@ body {
 div.surface{
     position: fixed;
     bottom: 0;
-    width: 70%;
+    width: 80%;
     height: 40%;
-    margin: auto;
-    text-align: justify;
+    margin-left: 10%;
+    margin-right:10%;
+    text-align: center;
+    display: block;
 
 }
 
 div.board {
     /*background-image: url('http://miron-construction.com/wp-content/files/2014/08/shutterstock_123301714.jpg');*/
     background-color: pink;
+    margin: auto;
+    text-align: center;
+    /*display: inline-block;*/
 }
 
 div.hole{
     height: 30%;
     width: 15%;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 5%;
+
     background-color: blue;
     position: relative;
     display: inline-block;

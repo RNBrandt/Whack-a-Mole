@@ -24,7 +24,7 @@ var Hole = React.createClass({
   },
   makeMole: function(){
     this.setState({molePresent: true});
-    console.log("make mole hit");
+    console.log(this);
     setTimeout(function(){this.setState({molePresent: false}); this.props.callOut=false;}.bind(this), 5000);
   },
   renderMole: function(){
@@ -47,7 +47,7 @@ var Hole = React.createClass({
   // },
   render: function(){
     console.log("only look after start game button has been pushed")
-    if ((this.state.molePresent) || this.props.callOut){
+    if (this.state.molePresent || this.props.callOut){
       return this.renderMole();
     }
     else {
@@ -101,7 +101,7 @@ var Surface = React.createClass({
     alert('Get Ready to start the game');
     var selected = this.findRandom();
     console.log("This is selected ", selected)
-    selected.makeMole;
+    selected.render();
   },
   findRandom: function(){
     // select a random hole from the bunch
