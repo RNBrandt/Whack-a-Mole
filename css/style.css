@@ -25,7 +25,7 @@ div.surface{
 }
 
 div.board {
-    /*background-image: url('http://miron-construction.com/wp-content/files/2014/08/shutterstock_123301714.jpg');*/
+    background-image: url('http://farm4.staticflickr.com/3697/11404615514_4d1f11878b_o.jpg');
     background-color: pink;
     margin: auto;
     text-align: center;
@@ -33,18 +33,18 @@ div.board {
 }
 
 div.hole{
-    height: 30%;
+    height: 35%;
     width: 15%;
     margin-left: 5%;
     margin-right: 5%;
     margin-bottom: 5%;
-
-    background-color: blue;
+    background-color: black;
     position: relative;
     display: inline-block;
-    text-align: justify;
+    text-align: center;
     text-justify: distribute-all-lines;
     box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, .2);
+    border-radius: 50%;
 
 }
 
@@ -53,9 +53,15 @@ div.mole:active {
 }
 
 div.mole{
-    height: 90%;
+    height: 100%;
     width: 60%;
-    background-color: red;
+    /*background-color: red;*/
+    margin: auto;
+    margin-bottom: 10%;
+    display: block;
+    background-image: url('fuck-face.png');
+    background-size: 90px;
+    background-repeat: no-repeat;
 }
 .hammer{
 }
