@@ -7,7 +7,7 @@
 // If the user hits the mole it will:
    // change it's face to look hurt
    // Increment the counter
-// If the User doesn't hit a mole after 0.5 seconds (timing may change)
+// If the User doesn't hit a mole after 5 seconds (timing will change)
   // The counter will not increment
   // The face will not change
   // The the mole will disappear.
@@ -24,7 +24,6 @@ var Hole = React.createClass({
   },
   makeMole: function(){
     this.setState({molePresent: true});
-    console.log(this);
     setTimeout(function(){this.setState({molePresent: false}); this.props.callOut=false;}.bind(this), 5000);
   },
   renderMole: function(){
@@ -35,7 +34,9 @@ var Hole = React.createClass({
     );
   },
   renderHole: function(){
+    console.log(this)
     return(
+      // 1) This makeMole on click works.
       <div className="hole" onClick={this.makeMole}></div>
     );
   },
@@ -76,7 +77,8 @@ var Surface = React.createClass({
   render: function(){
     return (<div className = "surface">
       {this.state.holes}
-      <button onClick={this.startGame} className='btn btn-primary glyphicon'/>
+      //  2) This startGame on click succesfully calls startGame
+      <button onClick={this.startGame} className='btn btn-large btn-primary glyphicon'/>
     </div>
     );
   },
@@ -89,7 +91,6 @@ var Surface = React.createClass({
     var holeArr = this.state.holes.map(this.eachHole);
     this.setState({holes: holeArr});
   },
-  // {this.state.holes.map(this.eachHole)}
 
   getInitialState: function(){
     return{
@@ -100,16 +101,16 @@ var Surface = React.createClass({
   startGame: function(){
     alert('Get Ready to start the game');
     var selected = this.findRandom();
-    console.log("This is selected ", selected)
-    selected.render();
+    // 4) This DOES select a Hole object, but it doens't have any functions associated with it (I'm thinking it's a has/ will/ does mount issue)
+    console.log("selected: ", selected)
+    // 5) This make Mole doesn't work
+    selected.makeMole;
   },
   findRandom: function(){
-    // select a random hole from the bunch
+    // 3) select a random hole from the bunch
     var arr = this.state.holes
-    var rand = [Math.floor(Math.random() * arr.length)];
+    var rand = Math.floor(Math.random() * arr.length);
     var selected = this.state.holes[rand]
-    selected.props.callOut=true
-    console.log(selected.props.callOut)
     return selected
   },
   eachHole: function(hole, i){
