@@ -17,13 +17,12 @@ var Hole = React.createClass({
 
   // },
   getInitialState: function(){
-    return {hit: false}
+    return {hit: false, molePresent: false}
   },
-  getInitialState: function(){
-    return {molePresent: false}
-  },
+
   makeMole: function(){
     this.setState({molePresent: true});
+    console.log(this)
     setTimeout(function(){this.setState({molePresent: false}); this.props.callOut=false;}.bind(this), 5000);
   },
   renderMole: function(){
@@ -34,7 +33,6 @@ var Hole = React.createClass({
     );
   },
   renderHole: function(){
-    console.log(this)
     return(
       // 1) This makeMole on click works.
       <div className="hole" onClick={this.makeMole}></div>
@@ -74,49 +72,48 @@ var Mole = React.createClass({
 })
 
 var Surface = React.createClass({
-  render: function(){
-    return (<div className = "surface">
-      {this.state.holes}
-      //  2) This startGame on click succesfully calls startGame
-      <button onClick={this.startGame} className='btn btn-large btn-primary glyphicon'/>
-    </div>
-    );
+  getInitialState: function(){
+    return{
+      holes: [{},{},{},{},{},{},{},{}]
+    };
   },
-
   componentWillMount() {
     this.returnHoles();
   },
-
   returnHoles: function() {
     var holeArr = this.state.holes.map(this.eachHole);
     this.setState({holes: holeArr});
   },
-
-  getInitialState: function(){
-    return{
-      holes: [{id:1}, {id:2}, {id:3},
-      {id:4},{id:5},{id:6},{id:7},{id:8}]
-    };
+  render: function(){
+      //  2) This startGame on click succesfully calls startGame
+    return (<div className = "surface">
+      {this.state.holes}
+      <button onClick={this.startGame} className='btn btn-large btn-primary glyphicon'/>
+    </div>
+    );
+  },
+  eachHole: function(hole, i){
+    return(
+    <Hole ref={hole.id} index={i}  callOut={false}></Hole>
+    );
   },
   startGame: function(){
-    alert('Get Ready to start the game');
+    // debugger;
+    console.log("after alert");
+    // alert('Get Ready to start the game');
     var selected = this.findRandom();
     // 4) This DOES select a Hole object, but it doens't have any functions associated with it (I'm thinking it's a has/ will/ does mount issue)
     console.log("selected: ", selected)
     // 5) This make Mole doesn't work
-    selected.makeMole;
+    selected.props.callOut = true;
   },
   findRandom: function(){
     // 3) select a random hole from the bunch
+    console.log("Find rand hit")
     var arr = this.state.holes
     var rand = Math.floor(Math.random() * arr.length);
     var selected = this.state.holes[rand]
     return selected
-  },
-  eachHole: function(hole, i){
-    return(
-    <Hole ref={hole.id} index={i} onChange={this.hit} callOut={false}></Hole>
-    );
   }
 });
 var Counter = React.createClass({
